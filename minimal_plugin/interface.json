@@ -1,0 +1,58 @@
+{
+	"configuration":{
+		"type":"static",
+		"script":"HUB:ezlo.minimal/scripts/configure_new",
+		"inputs":[
+			{
+				"name":"String",
+				"description":"String input",
+				"field":"string",
+				"required":true,
+				"type":"string"
+			},
+			{
+				"name":"Integer",
+				"description":"Integer input",
+				"field":"numerical",
+				"required":false,
+				"type":"int"
+			}
+		]
+	},
+	"contents":[
+		{
+			"id": "my_action_id",
+			"ui": {
+				"name": "plugin call",
+				"description": "Performs some action to the device",
+				"placement": "plugin"
+			},
+			"type": "setter-api",
+			"apply": [
+				{
+					"element": "item",
+					"when": {
+						"property": "name",
+						"operator": "=",
+						"value": "my_action"
+					},
+					"to_api": "hub.item.value.set"
+				}
+			],
+			"inputs":[
+				{
+					"name":"First Input",
+					"type": "string",
+					"required": true,
+					"description": "A string input."
+				},
+				{
+					"name":"Second Input",
+					"type": "number",
+					"required": false,
+					"description": "A numerical input."
+				}
+			]
+		}
+	]
+}

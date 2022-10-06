@@ -1,0 +1,46 @@
+{
+  "id": "ezlo.minimal",
+  "version": "1.0.0",
+  "meta": {
+    "name": {
+      "text": "Minimal Test Plugin"
+    },
+    "description": {
+      "text": "A plugin with the bare minimal configs, and no functionality, used purely for exposition."
+    },
+    "author": {
+      "text": "Ezlo Innovation"
+    },
+    "type": "node",
+    "language": "lua",
+    "placement": {
+        "static": true,
+        "custom": true
+    }
+  },
+  "type": "gateway",
+  "dependencies": {
+    "firmware": "2.0",
+    "addons": [
+      {
+        "id": "lua",
+        "version": "1.0"
+      }
+    ]
+  },
+  "permissions": [
+    "core",
+    "logging",
+    "storage"
+  ],
+  "executionPolicy": "restoreLastScriptState",
+  "startup": "scripts/startup",
+  "teardown": "scripts/teardown",
+  "gateway": {
+    "name": "ezlo.minimal",
+    "label": "Minimal test plugin",
+    "setItemValueCommand": "HUB:ezlo.minimal/scripts/set_item_value",
+    "setSettingValueCommand": "HUB:ezlo.minimal/scripts/set_setting_value",
+    "forceRemoveDeviceCommand": "HUB:ezlo.minimal/scripts/delete_device"
+  }
+}
